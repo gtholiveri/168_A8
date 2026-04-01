@@ -4,7 +4,7 @@ close all;
 
 f = @(x) sin(x).*exp(-0.1*x) - 0.25;
 
-graphFun(f, -10, 10, 1000);
+graphFun(f, -10, 10, 1000, "P2");
 
 guessIntervals = [-10 -8; -4 -2; 2 4];
 
@@ -12,12 +12,13 @@ labelZeros(f, guessIntervals);
 for ii=1:height(guessIntervals)
     shadeXArea(guessIntervals(ii,1), guessIntervals(ii,2));
 end
-function graphFun(fun, min, max, n)
+function graphFun(fun, min, max, n, ttl)
     arguments
         fun
         min
         max
         n = 150
+        ttl = ""
     end
     xv = linspace(min, max, n);
     figure;
@@ -27,6 +28,9 @@ function graphFun(fun, min, max, n)
     grid on;
     grid minor;
     plot(xv, fun(xv));
+    xlabel("x");
+    ylabel("y");
+    title(ttl);
 end
 
 function labelZeros(fun, guesses)

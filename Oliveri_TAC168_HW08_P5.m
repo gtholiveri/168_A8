@@ -30,4 +30,7 @@ disp("alpha = " + string(a));
 fit = @(t) a*exp(b*t);
 tv1 = linspace(0, 30);
 plot(tv1, fit(tv1));
+xlabel("x");
+ylabel("y");
+title("P5");
 % ylim([0 550]);
